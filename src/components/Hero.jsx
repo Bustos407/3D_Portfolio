@@ -26,7 +26,7 @@ const Hero = () => {
             <br className="sm:block hidden" />
           </p>
         </div>
-
+          <computersCanvas />
         
       </div>
     </section>
