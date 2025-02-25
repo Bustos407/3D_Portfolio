@@ -1,0 +1,11 @@
+Model Information:
+* title:	gaming laptop with red backlight
+* source:	https://sketchfab.com/3d-models/gaming-laptop-with-red-backlight-79200d31d7bd43b09d2d70e7e6cb4a96
+* author:	mfk (https://sketchfab.com/mfkffzl)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "gaming laptop with red backlight" (https://sketchfab.com/3d-models/gaming-laptop-with-red-backlight-79200d31d7bd43b09d2d70e7e6cb4a96) by mfk (https://sketchfab.com/mfkffzl) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
