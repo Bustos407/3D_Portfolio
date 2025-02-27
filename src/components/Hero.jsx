@@ -17,18 +17,39 @@ const Hero = () => {
             Hi, I'm <span className="text-[#915eff]">Santiago</span>
           </h1>
           <p className={`${styles.heroSubText}mt-2 text-white-100`}>
-            I am a full-stack developer with experience in both backend and
-            frontend development. Throughout my career, I have built technology
-            solutions from the ground up, showcasing my ability to work
-            independently and as part of a team. I am passionate about creating
-            robust, scalable, and user-focused applications, always striving to
-            deliver high-quality results that exceed expectations.
+            I am a full-stack developer with knowledge in both backend and frontend development.
             <br className="sm:block hidden" />
           </p>
         </div>
-          <computersCanvas />
         
       </div>
+          <ComputersCanvas />
+
+          <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+
+            <a href="#about">
+              <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
+
+                <motion.div
+                
+                animate={{
+                  y: [0, 24, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                }}
+                className = "w-3 h-3 rounded-full bg-secondary mb-1"
+                
+                
+                />
+                
+              </div>
+            </a>
+
+
+          </div>
     </section>
   );
 };
