@@ -132,8 +132,8 @@ const Contact = () => {
       {/* Mueve el cohete un poco más a la derecha */}
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] ml-10"
-      >
+        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] xl:ml-10 ml-0"
+        >
         <EarthCanvas />
       </motion.div>
     </div>

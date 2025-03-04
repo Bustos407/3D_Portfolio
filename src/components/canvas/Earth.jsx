@@ -15,7 +15,7 @@ const Earth = () => {
     }
   });
 
-  return <primitive object={scene} scale={2.5} position-y={0} rotation-y={0} />;
+  return <primitive object={scene} scale={2} position-y={-4} rotation-y={0} />;
 };
 
 // Componente principal que usa el Canvas de react-three/fiber
@@ -30,7 +30,7 @@ const EarthCanvas = () => {
         fov: 45,
         near: 0.1,
         far: 200,
-        position: [-4, 3, 6],
+        position: [-6, 3, 12], // Posición de la cámara más alejada
       }}
     >
       {/* Luz ambiental */}
@@ -41,9 +41,9 @@ const EarthCanvas = () => {
       {/* Habilitar el control de órbita para navegar alrededor de la escena */}
       <OrbitControls
         autoRotate
-        enableZoom={false}
-        maxPolarAngle={Math.PI / 2}
-        minPolarAngle={Math.PI / 2}
+        enableZoom={false} // Deshabilitar el zoom
+        maxPolarAngle={Math.PI / 2} // Limitar el movimiento vertical
+        minPolarAngle={Math.PI / 2} // Limitar el movimiento vertical
       />
       {/* Suspense para cargar el modelo */}
       <Suspense fallback={<CanvasLoader />}>
