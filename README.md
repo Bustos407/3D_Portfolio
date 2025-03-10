@@ -1,8 +1,32 @@
-# React + Vite
+# 🚀 3D Portfolio Website  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website showcasing my skills, projects, and experience in web development. The site features an interactive 3D model and a smooth user experience.  
 
-Currently, two official plugins are available:
+## 🛠 Technologies Used  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React.js** - Frontend framework  
+- **Three.js** - For rendering the 3D model  
+- **Tailwind CSS** - For styling and responsive design  
+- **Framer Motion** - For animations and smooth transitions  
+- **EmailJS** - For the contact form functionality  
+
+## 🌟 Features  
+
+- Interactive 3D model  
+- Responsive and modern UI  
+- Contact form with email integration  
+- Smooth animations with Framer Motion  
+
+## 📌 Live Demo  
+
+You can check out the live version of the portfolio here:  
+🔗 [Live Website](https://sbustos-portfolio.pages.dev)  
+
+## 📩 Contact  
+
+Feel free to reach out through the contact form on the website or email me directly at:  
+📧 bustosmoralesantiago@gmail.com  
+
+---
+
+Hope you like it! 🚀✨  
