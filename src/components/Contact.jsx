@@ -7,9 +7,6 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
-//Ykhha0G8rFqsyTUdQpYsx
-//template_og2bjty
-//service_gix2jjf
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -50,7 +47,7 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert("Thank you.  I will get back to you soon!");
+          alert("Thank you! I will get back to you soon.");
 
           setForm({
             name: "",
@@ -62,23 +59,21 @@ const Contact = () => {
           setLoading(false);
           console.error(error);
 
-          alert("¡Ups! Something went wrong. Please try again later.");
+          alert("Oops! Something went wrong. Please try again later.");
         }
       );
   };
 
   return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-    >
-      {/* Ajusta el tamaño del formulario */}
+    <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
+      {/* Adjust form size */}
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[1.5] bg-[#3b82f6] p-8 rounded-2xl"
       >
-        <p className={styles.sectionSubText}>Ponte en contacto</p>
+        <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className="text-[#ffffff] font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
-          Contacto.
+          Contact.
         </h3>
 
         <form
@@ -87,35 +82,35 @@ const Contact = () => {
           className="mt-12 flex flex-col gap-8"
         >
           <label className="flex flex-col text-black">
-            <span className="text-white font-medium mb-4">Tu nombre</span>
+            <span className="text-white font-medium mb-4">Your Name</span>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="¿Cómo te llamas?"
+              placeholder="What's your name?"
               className="bg-white py-4 px-6 placeholder:text-black text-black rounded-lg outline-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col text-black">
-            <span className="text-white font-medium mb-4">Tu correo</span>
+            <span className="text-white font-medium mb-4">Your Email</span>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="¿Cuál es tu correo?"
+              placeholder="What's your email?"
               className="bg-white py-4 px-6 placeholder:text-black text-black rounded-lg outline-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Tu mensaje</span>
+            <span className="text-white font-medium mb-4">Your Message</span>
             <textarea
               rows={7}
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="¿Qué quieres decir?"
+              placeholder="What do you want to say?"
               className="bg-white py-4 px-6 placeholder:text-black text-black rounded-lg outline-none border-none font-medium"
             />
           </label>
@@ -124,16 +119,16 @@ const Contact = () => {
             type="submit"
             className="bg-white py-3 px-8 rounded-xl outline-none w-fit text-black font-bold shadow-md shadow-primary"
           >
-            {loading ? "Enviando..." : "Enviar"}
+            {loading ? "Sending..." : "Send"}
           </button>
         </form>
       </motion.div>
 
-      {/* Mueve el cohete un poco más a la derecha */}
+      {/* Move the rocket slightly to the right */}
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
         className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] xl:ml-10 ml-0"
-        >
+      >
         <EarthCanvas />
       </motion.div>
     </div>
