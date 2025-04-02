@@ -33,7 +33,10 @@ const ProjectCard = ({
             className="w-full h-full object-cover rounded-2xl"
           />
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-            <div className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer">
+            <div
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              onClick={() => window.open(source_code_link, "_blank")}
+            >
               <img
                 src={github}
                 alt="source code"
@@ -70,16 +73,6 @@ const Works = () => {
         <p className={`${styles.sectionSubText}`}>My work</p>
         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
       </motion.div>
-
-      <div className="w-full flex">
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-black text-[17px] max-w-3xl leading-[30px]"
-        >
-          Below are some of the projects I have worked on. These showcase my
-          skills and experience in various technologies and domains.
-        </motion.p>
-      </div>
 
       <div className="mt-20 flex flex-wrap gap-7 justify-center">
         {projects.map((project, index) => (
