@@ -32,6 +32,7 @@ import carvajal from "./company/carvajal.jpg";
 
 import circa from "../assets/circa.jpg";
 import planpadrino from "../assets/planpadrino.jpg";
+import weatherwise from "../assets/weatherwise.jpg";
 
 export {
   logo,
@@ -65,5 +66,6 @@ export {
   threejs,
   carvajal,
   circa,
+  weatherwise,
   planpadrino,
 };
