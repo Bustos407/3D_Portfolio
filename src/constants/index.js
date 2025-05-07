@@ -26,6 +26,7 @@ import {
   python,
   planpadrino,
   circa,
+  weatherwise,
   threejs,
 } from "../assets";
 
@@ -101,6 +102,22 @@ const experiences = [
 ];
 
 const projects = [
+
+  {
+    name: "WeatherApp",
+    description:
+      "Fullstack weather application with real-time data, search autocomplete, and favorites management using external API integration.",
+    tags: [
+      { name: "React", color: "blue-text-gradient" },
+      { name: "TypeScript", color: "blue-text-gradient" },
+      { name: "Express.js", color: "violet-text-gradient" },
+      { name: "MySQL", color: "blue-text-gradient" },
+      { name: "REST API", color: "green-text-gradient" },
+      { name: "WeatherAPI", color: "pink-text-gradient" },
+    ],
+    image: weatherwise, // Asegúrate de importar la imagen
+    source_code_link: "https://github.com/Bustos407/weather_app_backend",
+  },
   {
     name: "Circa",
     description:
