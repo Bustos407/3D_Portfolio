@@ -15,6 +15,7 @@ import {
   figma,
   docker,
   carvajal,
+  evolution,
   netcore,
   springboot,
   sql,
@@ -24,6 +25,7 @@ import {
   csharp,
   firebase,
   python,
+  go,
   planpadrino,
   circa,
   weatherwise,
@@ -54,10 +56,6 @@ const services = [
     title: "Backend Developer",
     icon: backend,
   },
-  {
-    title: "Mobile Developer",
-    icon: backend,
-  },
 ];
 
 const technologies = [
@@ -68,6 +66,7 @@ const technologies = [
   { name: "Python", icon: python },
   { name: "Java", icon: java },
   { name: "C#", icon: csharp },
+  { name: "Go", icon: go },
   { name: "React JS", icon: reactjs },
   { name: "Redux Toolkit", icon: redux },
   { name: "Tailwind CSS", icon: tailwind },
@@ -86,6 +85,19 @@ const technologies = [
 ];
 
 const experiences = [
+  {
+    title: "Backend Developer",
+    company_name: "Evolution Consulting",
+    icon: evolution,
+    iconBg: "#1a1a2e",
+    date: "May 2025 - Present",
+    points: [
+      "Contributed to the design and implementation of a payroll management system for client companies in the Dominican Republic, streamlining and automating salary settlement processes.",
+      "Developed services under a microservices architecture to ensure scalability and reliability of the payroll system.",
+      "Applied software engineering best practices and SOLID principles to maintain long-term code quality.",
+      "Actively participated in Scrum methodology: sprint planning, reviews, and iterative deliveries.",
+    ],
+  },
   {
     title: "Fullstack Developer",
     company_name: "Carvajal Tecnologias y Servicios",

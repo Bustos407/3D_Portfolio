@@ -27,7 +27,9 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import go from "./tech/go.png";
 import carvajal from "./company/carvajal.jpg";
+import evolution from "./company/evolution.jpg";
 
 
 import circa from "../assets/circa.jpg";
@@ -64,7 +66,9 @@ export {
   tailwind,
   typescript,
   threejs,
+  go,
   carvajal,
+  evolution,
   circa,
   weatherwise,
   planpadrino,

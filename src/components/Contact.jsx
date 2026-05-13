@@ -1,30 +1,26 @@
 import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
+import { slideIn, fadeIn } from "../utils/motion";
 
 const Contact = () => {
   const formRef = useRef();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
+  const [notification, setNotification] = useState(null);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
-    setForm({
-      ...form,
-      [name]: value,
-    });
+  const showNotification = (type, message) => {
+    setNotification({ type, message });
+    setTimeout(() => setNotification(null), 5000);
   };
 
   const handleSubmit = (e) => {
@@ -44,90 +40,101 @@ const Contact = () => {
         },
         import.meta.env.VITE_APP_EMAILJS_USER_ID
       )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you! I will get back to you soon.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Oops! Something went wrong. Please try again later.");
-        }
-      );
+      .then(() => {
+        setLoading(false);
+        showNotification("success", "Thank you! I will get back to you soon.");
+        setForm({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error(error);
+        showNotification("error", "Something went wrong. Please try again later.");
+      });
   };
 
   return (
-    <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
-      {/* Adjust form size */}
+    <div className="xl:mt-6 flex xl:flex-row flex-col gap-8 overflow-hidden">
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex-[1.5] bg-[#3b82f6] p-8 rounded-2xl"
+        className="flex-[1.5] glass-card p-6 rounded-2xl"
       >
         <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className="text-[#ffffff] font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+        <h3 className="gradient-text font-black md:text-[50px] sm:text-[40px] xs:text-[32px] text-[26px]">
           Contact.
         </h3>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="mt-12 flex flex-col gap-8"
+          className="mt-6 flex flex-col gap-4"
         >
-          <label className="flex flex-col text-black">
-            <span className="text-white font-medium mb-4">Your Name</span>
+          <label className="flex flex-col">
+            <span className="text-white font-medium mb-2">Your Name</span>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className="bg-white py-4 px-6 placeholder:text-black text-black rounded-lg outline-none border-none font-medium"
+              className="bg-white/10 border border-white/20 py-3 px-5 placeholder:text-white/40 text-white rounded-lg outline-none font-medium focus:border-blue-500 transition-colors duration-200"
             />
           </label>
-          <label className="flex flex-col text-black">
-            <span className="text-white font-medium mb-4">Your Email</span>
+          <label className="flex flex-col">
+            <span className="text-white font-medium mb-2">Your Email</span>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email?"
-              className="bg-white py-4 px-6 placeholder:text-black text-black rounded-lg outline-none border-none font-medium"
+              className="bg-white/10 border border-white/20 py-3 px-5 placeholder:text-white/40 text-white rounded-lg outline-none font-medium focus:border-blue-500 transition-colors duration-200"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Message</span>
+            <span className="text-white font-medium mb-2">Your Message</span>
             <textarea
-              rows={7}
+              rows={5}
               name="message"
               value={form.message}
               onChange={handleChange}
               placeholder="What do you want to say?"
-              className="bg-white py-4 px-6 placeholder:text-black text-black rounded-lg outline-none border-none font-medium"
+              className="bg-white/10 border border-white/20 py-3 px-5 placeholder:text-white/40 text-white rounded-lg outline-none font-medium focus:border-blue-500 transition-colors duration-200 resize-none"
             />
           </label>
 
-          <button
-            type="submit"
-            className="bg-white py-3 px-8 rounded-xl outline-none w-fit text-black font-bold shadow-md shadow-primary"
-          >
-            {loading ? "Sending..." : "Send"}
-          </button>
+          <div className="flex flex-col gap-3">
+            <button
+              type="submit"
+              disabled={loading}
+              className={`${styles.gradientBtn} w-fit disabled:opacity-60 disabled:cursor-not-allowed`}
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </button>
+
+            <AnimatePresence>
+              {notification && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className={`px-4 py-3 rounded-lg text-sm font-medium ${
+                    notification.type === "success"
+                      ? "bg-green-500/20 border border-green-500/40 text-green-300"
+                      : "bg-red-500/20 border border-red-500/40 text-red-300"
+                  }`}
+                >
+                  {notification.message}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </form>
       </motion.div>
 
-      {/* Move the rocket slightly to the right */}
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] xl:ml-10 ml-0"
+        className="xl:flex-1 xl:h-auto md:h-[550px] xs:h-[300px] h-[250px]"
       >
         <EarthCanvas />
       </motion.div>
