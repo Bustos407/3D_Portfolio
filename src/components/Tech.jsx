@@ -1,41 +1,39 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
-import { fadeIn, textVariant } from "../utils/motion";
+import { scaleIn, textVariant } from "../utils/motion";
 import { styles } from "../styles";
 
 const Tech = SectionWrapper(function Tech() {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText}`}>What I know?</p>
+        <p className={`${styles.sectionSubText}`}>What I know</p>
         <h2 className={`${styles.sectionHeadText}`}>Technologies.</h2>
       </motion.div>
 
-      <div className="mt-10 flex flex-row flex-wrap justify-center gap-10">
+      <div className="mt-8 sm:mt-10 flex flex-row flex-wrap justify-center gap-3 xs:gap-5 sm:gap-8">
         {technologies.map((tech, index) => (
           <motion.div
             key={tech.name}
-            variants={fadeIn("right", "spring", 0.375 * index, 0.75)}
+            variants={scaleIn(0.05 * index, 0.4)}
+            className="flex flex-col items-center gap-2"
           >
-            <div
-              className="w-28 h-28 p-1 bg-white rounded-xl flex justify-center items-center"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+            <motion.div
+              whileHover={{
+                scale: 1.15,
+                boxShadow: "0 0 20px rgba(59,130,246,0.5), 0 0 40px rgba(139,92,246,0.3)",
+              }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 p-2 sm:p-3 glass-card rounded-xl flex justify-center items-center cursor-pointer"
             >
-              <motion.img
-                className={`cursor-pointer w-full h-full object-contain transition-all ${
-                  hoveredIndex === index ? "animate-tremble" : ""
-                }`}
+              <img
+                className="w-full h-full object-contain"
                 src={tech.icon}
                 alt={tech.name}
               />
-            </div>
-
-            <p className="text-black text-center text-[14px] font-semibold mt-2">
+            </motion.div>
+            <p className="text-secondary text-center text-[13px] font-medium">
               {tech.name}
             </p>
           </motion.div>

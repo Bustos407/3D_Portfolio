@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\busto\\\\Documents\\\\Proyectos\\\\3D_Portfolio\" -Recurse -Directory)",
+      "Bash(Select-Object FullName)",
+      "Bash(Sort-Object FullName)",
+      "Bash(npm run *)",
+      "Bash(npx vite *)",
+      "Bash(node_modules\\\\.bin\\\\vite build *)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png\" -OutFile \"src\\\\assets\\\\tech\\\\go.png\" -UseBasicParsing; if \\($?\\) { \"OK\" } else { \"FAIL\" })",
+      "mcp__ide__getDiagnostics"
+    ]
+  }
+}

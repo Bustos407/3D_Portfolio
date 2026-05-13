@@ -11,26 +11,30 @@ import { textVariant } from "../utils/motion";
 
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
-    contentStyle={{ background: "#3b82f6", color: "#000000" }}
-    contentArrowStyle={{ borderRight: "7px solid  #3b82f6" }}
+    contentStyle={{
+      background: "rgba(255, 255, 255, 0.05)",
+      backdropFilter: "blur(12px)",
+      border: "1px solid rgba(255, 255, 255, 0.1)",
+      color: "#fff",
+      borderRadius: "12px",
+    }}
+    contentArrowStyle={{ borderRight: "7px solid rgba(59, 130, 246, 0.5)" }}
     date={experience.date}
+    dateClassName="text-secondary"
     iconStyle={{ background: experience.iconBg }}
     icon={
-      <div>
+      <div className="flex justify-center items-center w-full h-full">
         <img
           src={experience.icon}
           alt={experience.company_name}
-          className="w-[60px] h-[60px] object-contain rounded-full"
+          className="w-[60%] h-[60%] object-contain rounded-full"
         />
       </div>
     }
   >
     <div>
-      <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
-      <p
-        className="text-secondary text-[16px] font-semibold"
-        style={{ margin: 0 }}
-      >
+      <h3 className="text-white text-[18px] sm:text-[24px] font-bold">{experience.title}</h3>
+      <p className="text-secondary text-[14px] sm:text-[16px] font-semibold" style={{ margin: 0 }}>
         {experience.company_name}
       </p>
     </div>
@@ -39,7 +43,7 @@ const ExperienceCard = ({ experience }) => (
       {experience.points.map((point, index) => (
         <li
           key={`experience-point-${index}`}
-          className="text-white-100 text-[14px] pl-1 tracking-wider"
+          className="text-white/80 text-[14px] pl-1 tracking-wider"
         >
           {point}
         </li>
@@ -51,15 +55,13 @@ const ExperienceCard = ({ experience }) => (
 const Experience = () => {
   return (
     <>
-      <motion.div variants={textVariant}>
+      <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>What I have done so far</p>
-        <h2 className={styles.sectionHeadText}>Work Experience</h2>
+        <h2 className={styles.sectionHeadText}>Work Experience.</h2>
       </motion.div>
 
       <div className="mt-20 flex flex-col">
-        <VerticalTimeline
-          lineColor="#000000" // Cambiar el color de la línea aquí
-        >
+        <VerticalTimeline lineColor="#3b82f6">
           {experiences.map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />
           ))}
